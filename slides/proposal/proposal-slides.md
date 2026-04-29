@@ -149,46 +149,98 @@ This is the deck's central tension. If segmentation were only good, the model wo
 
 ## Theoretical Bridge
 
+::: {.lead}
+I am not the first to formalize cognition under limits. I borrow one move from each of these four traditions; the contribution is integrating them.
+:::
+
 ::: {.lane-grid}
 ::: {.lane}
-**Cognitive load theory**
+::: {.lane-eyebrow}
+COGNITIVE LOAD THEORY
+:::
 
-Intrinsic and extraneous cost; element interactivity; prior knowledge.
+::: {.lane-move}
+Split cost by source.
+:::
 
-$I_i$, $E_i$, $r_j$
+The cost of learning a thing is decomposed by where it comes from: the material itself, how it is presented, and what is left over for learning.
+
+::: {.lane-chip}
+becomes $I_i$, $E_i$, $P_i$
+:::
+
+::: {.lane-cite}
+Sweller, 1988; 2010
+:::
 :::
 
 ::: {.lane}
-**Working-memory resource models**
+::: {.lane-eyebrow}
+WORKING-MEMORY RESOURCE MODELS
+:::
 
-Capacity as graded, allocable, and costly.
+::: {.lane-move}
+Treat capacity as a graded budget.
+:::
 
-$C_i$, optimization
+Capacity is not a fixed slot count; it is a resource that can be unevenly allocated across elements and that runs out.
+
+::: {.lane-chip}
+becomes $C_i$
+:::
+
+::: {.lane-cite}
+Ma et al., 2014; van den Berg & Ma, 2018
+:::
 :::
 
 ::: {.lane}
-**Coherence and comprehension**
+::: {.lane-eyebrow}
+COHERENCE AND COMPREHENSION
+:::
 
-Understanding depends on preserved relational structure.
+::: {.lane-move}
+Preserve the relations transfer needs.
+:::
 
-$L(\Pi)$, transfer
+Understanding depends on cross-element relations being intact; segmentation can break them, and that should hurt transfer more than recall.
+
+::: {.lane-chip}
+becomes $L(\Pi)$
+:::
+
+::: {.lane-cite}
+Kintsch, 1994; Anmarkrud et al., 2019
+:::
 :::
 
 ::: {.lane}
-**Formal cognition models**
-
-Capacity limits can be modeled as constrained optimization.
-
-objective function
-:::
+::: {.lane-eyebrow}
+FORMAL COGNITION MODELS
 :::
 
-::: {.anchor}
-Anchors: Baddeley, 1992; Ma et al., 2014; Kintsch, 1994; Sawicka, 2008
+::: {.lane-move}
+Frame limits as constrained optimization.
+:::
+
+Adjacent traditions write capacity-limited cognition as an objective to maximize, not just a verbal trade-off.
+
+::: {.lane-chip}
+becomes $\arg\max_\Pi[\,\cdot\,]$
+:::
+
+::: {.lane-cite}
+Sawicka, 2008; Nassar et al., 2018
+:::
+:::
+:::
+
+::: {.bridge-footer}
+Each chip names a variable that is formally defined two to three slides later.
 :::
 
 ::: {.notes}
-The point of this slide is positioning. The proposal is not claiming to be the first formal model of limited cognition. It is claiming that these lines have not been integrated into a CLT-shaped model of instructional partitioning.
+This slide is doing positioning, not literature review. Each lane should answer one question: what specific move did I take from this tradition, and where does it show up in my model. Speak the chip out loud — "this becomes I_i / E_i / P_i" — so the audience can hold on to the mapping when those symbols return.
 :::
 
 ## Memory Partition Demo
@@ -388,8 +440,48 @@ $$
 Goal-relevant processing is what remains after capacity is consumed by extraneous and intrinsic cost.
 :::
 
+::: {.notation-legend}
+::: {.legend-title}
+NOTATION
+:::
+
+::: {.legend-grid}
+::: {.legend-row}
+$I_i$ — intrinsic processing cost in segment $i$
+:::
+
+::: {.legend-row}
+$C_i$ — effective processing capacity in segment $i$
+:::
+
+::: {.legend-row}
+$P_i$ — goal-relevant processing left for learning
+:::
+
+::: {.legend-row}
+$E_i$ — extraneous processing cost (presentation, interface)
+:::
+
+::: {.legend-row}
+$r_j \in [0,1]$ — residual novelty of element $a_j$ after prior knowledge
+:::
+
+::: {.legend-row}
+$q_j$ — element-level complexity
+:::
+
+::: {.legend-row}
+$w_{uv}$ — simultaneous coordination demand between $a_u$ and $a_v$
+:::
+
+::: {.legend-row}
+$\alpha,\beta,\gamma$ — weights on the three cost terms; $(x)_+ = \max(x,0)$
+:::
+:::
+:::
+
 ::: {.notes}
-Do not over-explain every parameter. Emphasize that the third term is the formal version of element interactivity: relations among elements can consume capacity, not just the number of elements.
+Do not over-explain every parameter. Emphasize that the third term is the formal version of element interactivity: relations among elements can consume capacity, not just the number of elements. The notation strip below is for reference only — do not read it line by line.
 :::
 
 ## Optimization Objective
@@ -433,6 +525,38 @@ The objective rewards accumulated goal-relevant processing and penalizes connect
 
 ::: {.objective-footnote}
 $\lambda$ is a theoretical fragmentation-sensitivity weight, not yet a fully estimated empirical parameter.
+:::
+
+::: {.notation-legend}
+::: {.legend-title}
+NOTATION
+:::
+
+::: {.legend-grid}
+::: {.legend-row}
+$\Pi^\star$ — the optimal partition (the choice that maximizes the objective)
+:::
+
+::: {.legend-row}
+$\Pi = \{A_1, \ldots, A_p\}$ — a candidate partition into $p$ segments
+:::
+
+::: {.legend-row}
+$P_i$ — goal-relevant processing in segment $i$ (from Processing Cost)
+:::
+
+::: {.legend-row}
+$L(\Pi) = \sum w_{uv}$ over relations split across segments — connection loss
+:::
+
+::: {.legend-row}
+$\lambda > 0$ — fragmentation-sensitivity weight (theoretical, not yet estimated)
+:::
+
+::: {.legend-row}
+The objective rewards accumulated $P_i$ and penalizes coherence loss $L(\Pi)$.
+:::
+:::
 :::
 
 ::: {.notes}
@@ -504,4 +628,42 @@ The project turns a familiar verbal problem in instructional design into a preci
 
 ::: {.notes}
 Close by making the novelty claim careful. It is not "the first formal model of working memory." It is an integrated model for structured instructional partitioning that joins intrinsic cost, extraneous cost, goal-relevant processing, and coherence loss.
+:::
+
+## References (1 / 2)
+
+::: {.references-list}
+Anmarkrud, Ø., Andresen, A., & Bråten, I. (2019). Cognitive load and working memory in multimedia learning: Conceptual and measurement issues. *Educational Psychologist*, 54(2), 61–83.
+
+Baddeley, A. D. (1992). Working memory. *Science*, 255(5044), 556–559.
+
+Chen, O., Paas, F., & Sweller, J. (2023). A cognitive load theory approach to defining and measuring task complexity through element interactivity. *Educational Psychology Review*, 35, 63.
+
+Kintsch, W. (1994). Text comprehension, memory, and learning. *American Psychologist*, 49(4), 294–303.
+
+Ma, W. J., Husain, M., & Bays, P. M. (2014). Changing concepts of working memory. *Nature Neuroscience*, 17(3), 347–356.
+
+Nassar, M. R., Helmers, J. C., & Frank, M. J. (2018). Chunking as a rational strategy for lossy data compression in visual working memory. *Psychological Review*, 125(4), 486–511.
+:::
+
+::: {.notes}
+Reference slides are for record only — do not read aloud. Skim past during the talk.
+:::
+
+## References (2 / 2)
+
+::: {.references-list}
+Sawicka, A. (2008). Dynamics of cognitive load theory: A model-based approach. *Computers in Human Behavior*, 24(3), 1041–1066.
+
+Sweller, J. (1988). Cognitive load during problem solving: Effects on learning. *Cognitive Science*, 12(2), 257–285.
+
+Sweller, J. (2010). Element interactivity and intrinsic, extraneous, and germane cognitive load. *Educational Psychology Review*, 22(2), 123–138.
+
+Sweller, J., van Merriënboer, J. J. G., & Paas, F. (2019). Cognitive architecture and instructional design: 20 years later. *Educational Psychology Review*, 31(2), 261–292.
+
+van den Berg, R., & Ma, W. J. (2018). A resource-rational theory of set size effects in human visual working memory. *eLife*, 7, e34963.
+:::
+
+::: {.notes}
+Continued reference list. Do not read aloud.
 :::

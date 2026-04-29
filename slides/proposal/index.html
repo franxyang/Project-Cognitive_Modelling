@@ -8,37 +8,39 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/css/reset.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/css/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
   <style>
+    .reveal .sourceCode {  /* see #7635 */
+      overflow: visible;
+    }
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
   </style>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/css/theme/white.css" id="theme">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css" id="theme">
   <link rel="stylesheet" href="custom.css"/>
-  <!-- Printing and PDF exports -->
-  <script>
-    var link = document.createElement( 'link' );
-    link.rel = 'stylesheet';
-    link.type = 'text/css';
-    link.href = window.location.search.match( /print-pdf/gi ) ? 'https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/css/print/pdf.css' : 'https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/css/print/paper.css';
-    document.getElementsByTagName( 'head' )[0].appendChild( link );
-  </script>
-  <!--[if lt IE 9]>
-  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/lib/js/html5shiv.js"></script>
-  <![endif]-->
 </head>
 <body>
   <div class="reveal">
     <div class="slides">
 
 <section id="title-slide">
-  <h1 class="title">Modeling Cognitive Load as an Instructional Partitioning Problem</h1>
-  <p class="subtitle">A theory-first proposal on segmentation, coherence, and working-memory constraints</p>
+  <h1 class="title">Modeling Cognitive Load as an Instructional
+Partitioning Problem</h1>
+  <p class="subtitle">A theory-first proposal on segmentation,
+coherence, and working-memory constraints</p>
   <p class="author">Yifan Yang</p>
   <p class="date">EDPS 506 | Spring 2026</p>
 </section>
@@ -51,17 +53,20 @@
 <div class="logic-line">
 <div class="logic-step">
 <p><strong>1 · Capacity</strong></p>
-<p>Working memory is a limited system for temporary storage and manipulation.</p>
+<p>Working memory is a limited system for temporary storage and
+manipulation.</p>
 <p><span>Baddeley, 1992</span></p>
 </div>
 <div class="logic-step">
 <p><strong>2 · Load</strong></p>
-<p>Learning depends on how intrinsic and extraneous demands consume that limited capacity.</p>
+<p>Learning depends on how intrinsic and extraneous demands consume that
+limited capacity.</p>
 <p><span>Sweller, 1988; Sweller, 2010</span></p>
 </div>
 <div class="logic-step">
 <p><strong>3 · Structure</strong></p>
-<p>Task complexity depends on element interactivity and prior knowledge, not just item count.</p>
+<p>Task complexity depends on element interactivity and prior knowledge,
+not just item count.</p>
 <p><span>Sweller et al., 2019; Chen et al., 2023</span></p>
 </div>
 <div class="logic-step accent">
@@ -71,39 +76,49 @@
 </div>
 </div>
 <aside class="notes">
-<p>This first problem slide should slow down the opening. The point is to show that the project is not coming from nowhere: CLT, working memory, and resource models already justify the modeling move.</p>
+<p>This first problem slide should slow down the opening. The point is
+to show that the project is not coming from nowhere: CLT, working
+memory, and resource models already justify the modeling move.</p>
 </aside>
 </section>
 <section id="gap" class="slide level2">
 <h2>Gap</h2>
 <div class="lead">
-<p>The missing piece is not whether load matters. It is how instructional structure becomes a prediction.</p>
+<p>The missing piece is not whether load matters. It is how
+instructional structure becomes a prediction.</p>
 </div>
 <div class="gap-grid">
 <div class="gap-item">
 <p><strong>No explicit content structure</strong></p>
-<p>Mainstream CLT discusses element interactivity, but usually does not represent instructional material as nodes, weights, and relations.</p>
+<p>Mainstream CLT discusses element interactivity, but usually does not
+represent instructional material as nodes, weights, and relations.</p>
 </div>
 <div class="gap-item">
 <p><strong>No partitioning objective</strong></p>
-<p>Segmentation is treated as a design principle, but not as an optimization problem with local relief and global coherence loss.</p>
+<p>Segmentation is treated as a design principle, but not as an
+optimization problem with local relief and global coherence loss.</p>
 </div>
 <div class="gap-item">
 <p><strong>Weak theory-measurement bridge</strong></p>
-<p>Multimedia learning work often invokes working memory and cognitive load without specifying how constructs map to outcomes.</p>
+<p>Multimedia learning work often invokes working memory and cognitive
+load without specifying how constructs map to outcomes.</p>
 </div>
 </div>
 <div class="anchor">
-<p>Anchors: Sweller, 2010; Chen et al., 2023; Anmarkrud et al., 2019; Sawicka, 2008</p>
+<p>Anchors: Sweller, 2010; Chen et al., 2023; Anmarkrud et al., 2019;
+Sawicka, 2008</p>
 </div>
 <aside class="notes">
-<p>This slide states the gap carefully. Do not claim that no formal models exist. The gap is narrower: a CLT-shaped model of structured instructional partitioning.</p>
+<p>This slide states the gap carefully. Do not claim that no formal
+models exist. The gap is narrower: a CLT-shaped model of structured
+instructional partitioning.</p>
 </aside>
 </section>
 <section id="proposal" class="slide level2">
 <h2>Proposal</h2>
 <div class="proposal-thesis">
-<p>Treat instructional design as a constrained partitioning problem over structured information.</p>
+<p>Treat instructional design as a constrained partitioning problem over
+structured information.</p>
 </div>
 <div class="proposal-flow">
 <div class="flow-node">
@@ -129,10 +144,14 @@ recall + transfer
 </div>
 </div>
 <div class="proposal-claim">
-<p>The model asks: <strong>how much should material be segmented before the cost of fragmentation exceeds the benefit of local relief?</strong></p>
+<p>The model asks: <strong>how much should material be segmented before
+the cost of fragmentation exceeds the benefit of local
+relief?</strong></p>
 </div>
 <aside class="notes">
-<p>The proposal slide should make the project feel tractable. It converts the gap into one modeling question: choose a partition that preserves enough structure while reducing local burden.</p>
+<p>The proposal slide should make the project feel tractable. It
+converts the gap into one modeling question: choose a partition that
+preserves enough structure while reducing local burden.</p>
 </aside>
 </section>
 <section id="core-tension" class="slide level2">
@@ -140,7 +159,8 @@ recall + transfer
 <div class="split">
 <div class="big-claim">
 <p>Segmentation is useful because it lowers local processing demand.</p>
-<p>But segmentation is risky because it can break the relations needed for transfer.</p>
+<p>But segmentation is risky because it can break the relations needed
+for transfer.</p>
 </div>
 <div class="tradeoff">
 <div class="trade-axis">
@@ -166,41 +186,58 @@ good design = tractable segments + preserved structure
 </div>
 </div>
 <div class="anchor">
-<p>Conceptual bridge: element interactivity + coherence-based comprehension</p>
+<p>Conceptual bridge: element interactivity + coherence-based
+comprehension</p>
 </div>
 <aside class="notes">
-<p>This is the deck’s central tension. If segmentation were only good, the model would be trivial. The intellectual contribution is representing the benefit and cost in one objective.</p>
+<p>This is the deck’s central tension. If segmentation were only good,
+the model would be trivial. The intellectual contribution is
+representing the benefit and cost in one objective.</p>
 </aside>
 </section>
 <section id="theoretical-bridge" class="slide level2">
 <h2>Theoretical Bridge</h2>
+<div class="lead">
+<p>I am not the first to formalize cognition under limits. I borrow one move from each of these four traditions; the contribution is integrating them.</p>
+</div>
 <div class="lane-grid">
 <div class="lane">
-<p><strong>Cognitive load theory</strong></p>
-<p>Intrinsic and extraneous cost; element interactivity; prior knowledge.</p>
-<p><span class="math inline">\(I_i\)</span>, <span class="math inline">\(E_i\)</span>, <span class="math inline">\(r_j\)</span></p>
+<div class="lane-eyebrow"><p>COGNITIVE LOAD THEORY</p></div>
+<div class="lane-move"><p>Split cost by source.</p></div>
+<p>The cost of learning a thing is decomposed by where it comes from: the material itself, how it is presented, and what is left over for learning.</p>
+<div class="lane-chip"><p>becomes <span class="math inline">\(I_i\)</span>, <span class="math inline">\(E_i\)</span>, <span class="math inline">\(P_i\)</span></p></div>
+<div class="lane-cite"><p>Sweller, 1988; 2010</p></div>
 </div>
 <div class="lane">
-<p><strong>Working-memory resource models</strong></p>
-<p>Capacity as graded, allocable, and costly.</p>
-<p><span class="math inline">\(C_i\)</span>, optimization</p>
+<div class="lane-eyebrow"><p>WORKING-MEMORY RESOURCE MODELS</p></div>
+<div class="lane-move"><p>Treat capacity as a graded budget.</p></div>
+<p>Capacity is not a fixed slot count; it is a resource that can be unevenly allocated across elements and that runs out.</p>
+<div class="lane-chip"><p>becomes <span class="math inline">\(C_i\)</span></p></div>
+<div class="lane-cite"><p>Ma et al., 2014; van den Berg &amp; Ma, 2018</p></div>
 </div>
 <div class="lane">
-<p><strong>Coherence and comprehension</strong></p>
-<p>Understanding depends on preserved relational structure.</p>
-<p><span class="math inline">\(L(\Pi)\)</span>, transfer</p>
+<div class="lane-eyebrow"><p>COHERENCE AND COMPREHENSION</p></div>
+<div class="lane-move"><p>Preserve the relations transfer needs.</p></div>
+<p>Understanding depends on cross-element relations being intact; segmentation can break them, and that should hurt transfer more than recall.</p>
+<div class="lane-chip"><p>becomes <span class="math inline">\(L(\Pi)\)</span></p></div>
+<div class="lane-cite"><p>Kintsch, 1994; Anmarkrud et al., 2019</p></div>
 </div>
 <div class="lane">
-<p><strong>Formal cognition models</strong></p>
-<p>Capacity limits can be modeled as constrained optimization.</p>
-<p>objective function</p>
+<div class="lane-eyebrow"><p>FORMAL COGNITION MODELS</p></div>
+<div class="lane-move"><p>Frame limits as constrained optimization.</p></div>
+<p>Adjacent traditions write capacity-limited cognition as an objective to maximize, not just a verbal trade-off.</p>
+<div class="lane-chip"><p>becomes <span class="math inline">\(\arg\max_\Pi[\,\cdot\,]\)</span></p></div>
+<div class="lane-cite"><p>Sawicka, 2008; Nassar et al., 2018</p></div>
 </div>
 </div>
-<div class="anchor">
-<p>Anchors: Baddeley, 1992; Ma et al., 2014; Kintsch, 1994; Sawicka, 2008</p>
+<div class="bridge-footer">
+<p>Each chip names a variable that is formally defined two to three slides later.</p>
 </div>
 <aside class="notes">
-<p>The point of this slide is positioning. The proposal is not claiming to be the first formal model of limited cognition. It is claiming that these lines have not been integrated into a CLT-shaped model of instructional partitioning.</p>
+<p>The point of this slide is positioning. The proposal is not claiming
+to be the first formal model of limited cognition. It is claiming that
+these lines have not been integrated into a CLT-shaped model of
+instructional partitioning.</p>
 </aside>
 </section>
 <section id="memory-partition-demo" class="slide level2">
@@ -248,10 +285,17 @@ good design = tractable segments + preserved structure
 })();
 </script>
 <div class="pdf-fallback">
-<p>Memory intuition: the same ten digits can be presented as one unsegmented string, as useful chunks such as <code>739 · 481 · 6205</code>, or as ten isolated digits. Moderate partitioning reduces local burden; excessive partitioning removes useful binding structure.</p>
+<p>Memory intuition: the same ten digits can be presented as one
+unsegmented string, as useful chunks such as
+<code>739 · 481 · 6205</code>, or as ten isolated digits. Moderate
+partitioning reduces local burden; excessive partitioning removes useful
+binding structure.</p>
 </div>
 <aside class="notes">
-<p>Use this slide as a quick live activity. Ask viewers to look at each row for a few seconds and notice that the raw string, useful chunks, and over-partitioned sequence have different memory demands despite containing identical information.</p>
+<p>Use this slide as a quick live activity. Ask viewers to look at each
+row for a few seconds and notice that the raw string, useful chunks, and
+over-partitioned sequence have different memory demands despite
+containing identical information.</p>
 </aside>
 </section>
 <section id="representing-instructional-structure" class="slide level2">
@@ -307,17 +351,23 @@ good design = tractable segments + preserved structure
   </svg>
 </div>
 <div class="pdf-fallback">
-<p>Instructional material is represented as a structured set of information elements. A partition divides the set into instructional segments; strong relations split across segments create connection loss.</p>
+<p>Instructional material is represented as a structured set of
+information elements. A partition divides the set into instructional
+segments; strong relations split across segments create connection
+loss.</p>
 </div>
 <div class="notation-strip">
 <p><span class="math inline">\(A = \{a_1, \ldots, a_k\}\)</span><br />
 <span class="math inline">\(q_j\)</span> = element complexity<br />
 <span class="math inline">\(w_{uv}\)</span> = coordination demand<br />
 <span class="math inline">\(r_j\)</span> = residual novelty<br />
-<span class="math inline">\(\Pi = \{A_1, \ldots, A_p\}\)</span> = partition</p>
+<span class="math inline">\(\Pi = \{A_1, \ldots, A_p\}\)</span> =
+partition</p>
 </div>
 <aside class="notes">
-<p>Use the graph only as an explanatory object. Nodes are information elements. Edges are simultaneous coordination demands. The partition is the instructional segmentation decision.</p>
+<p>Use the graph only as an explanatory object. Nodes are information
+elements. Edges are simultaneous coordination demands. The partition is
+the instructional segmentation decision.</p>
 </aside>
 </section>
 <section id="minimal-assumptions" class="slide level2">
@@ -325,27 +375,36 @@ good design = tractable segments + preserved structure
 <div class="assumption-grid">
 <div class="assumption">
 <p><strong>A1 · Decomposability</strong></p>
-<p>Instructional material can be represented as elements and relations.</p>
+<p>Instructional material can be represented as elements and
+relations.</p>
 </div>
 <div class="assumption">
 <p><strong>A2 · Learner-relative cost</strong></p>
-<p>Prior knowledge reduces residual novelty and therefore effective burden.</p>
+<p>Prior knowledge reduces residual novelty and therefore effective
+burden.</p>
 </div>
 <div class="assumption">
 <p><strong>A3 · Relation cost</strong></p>
-<p><span class="math inline">\(w_{uv}\)</span> means simultaneous coordination demand, not generic semantic similarity.</p>
+<p><span class="math inline">\(w_{uv}\)</span> means simultaneous
+coordination demand, not generic semantic similarity.</p>
 </div>
 <div class="assumption">
 <p><strong>A4 · Common scale</strong></p>
-<p><span class="math inline">\(C_i\)</span>, <span class="math inline">\(E_i\)</span>, and <span class="math inline">\(I_i\)</span> are treated as comparable latent processing quantities.</p>
+<p><span class="math inline">\(C_i\)</span>, <span
+class="math inline">\(E_i\)</span>, and <span
+class="math inline">\(I_i\)</span> are treated as comparable latent
+processing quantities.</p>
 </div>
 <div class="assumption accent">
 <p><strong>A5 · Partition trade-off</strong></p>
-<p>Good segmentation improves local tractability without destroying too much global structure.</p>
+<p>Good segmentation improves local tractability without destroying too
+much global structure.</p>
 </div>
 </div>
 <aside class="notes">
-<p>These assumptions make the model defensible without overclaiming. They should come before formulas so the math feels like an encoding of assumptions rather than an arbitrary equation.</p>
+<p>These assumptions make the model defensible without overclaiming.
+They should come before formulas so the math feels like an encoding of
+assumptions rather than an arbitrary equation.</p>
 </aside>
 </section>
 <section id="processing-cost" class="slide level2">
@@ -373,10 +432,27 @@ I_i =
 <p><span class="math display">\[
 P_i = \left(C_i - E_i - I_i\right)_+
 \]</span></p>
-<p>Goal-relevant processing is what remains after capacity is consumed by extraneous and intrinsic cost.</p>
+<p>Goal-relevant processing is what remains after capacity is consumed
+by extraneous and intrinsic cost.</p>
+</div>
+<div class="notation-legend">
+<div class="legend-title"><p>NOTATION</p></div>
+<div class="legend-grid">
+<div class="legend-row"><p><span class="math inline">\(I_i\)</span> — intrinsic processing cost in segment <span class="math inline">\(i\)</span></p></div>
+<div class="legend-row"><p><span class="math inline">\(C_i\)</span> — effective processing capacity in segment <span class="math inline">\(i\)</span></p></div>
+<div class="legend-row"><p><span class="math inline">\(P_i\)</span> — goal-relevant processing left for learning</p></div>
+<div class="legend-row"><p><span class="math inline">\(E_i\)</span> — extraneous processing cost (presentation, interface)</p></div>
+<div class="legend-row"><p><span class="math inline">\(r_j \in [0,1]\)</span> — residual novelty of element <span class="math inline">\(a_j\)</span> after prior knowledge</p></div>
+<div class="legend-row"><p><span class="math inline">\(q_j\)</span> — element-level complexity</p></div>
+<div class="legend-row"><p><span class="math inline">\(w_{uv}\)</span> — simultaneous coordination demand between <span class="math inline">\(a_u\)</span> and <span class="math inline">\(a_v\)</span></p></div>
+<div class="legend-row"><p><span class="math inline">\(\alpha,\beta,\gamma\)</span> — weights on the three cost terms; <span class="math inline">\((x)_+ = \max(x,0)\)</span></p></div>
+</div>
 </div>
 <aside class="notes">
-<p>Do not over-explain every parameter. Emphasize that the third term is the formal version of element interactivity: relations among elements can consume capacity, not just the number of elements.</p>
+<p>Do not over-explain every parameter. Emphasize that the third term is
+the formal version of element interactivity: relations among elements
+can consume capacity, not just the number of elements. The notation
+strip below is for reference only — do not read it line by line.</p>
 </aside>
 </section>
 <section id="optimization-objective" class="slide level2">
@@ -411,13 +487,30 @@ P_i = \left(C_i - E_i - I_i\right)_+
   </div>
 </div>
 <div class="pdf-fallback">
-<p>The objective rewards accumulated goal-relevant processing and penalizes connection loss. Moderate segmentation can be optimal when it lowers local cost without cutting too many strong relations.</p>
+<p>The objective rewards accumulated goal-relevant processing and
+penalizes connection loss. Moderate segmentation can be optimal when it
+lowers local cost without cutting too many strong relations.</p>
 </div>
 <div class="objective-footnote">
-<p><span class="math inline">\(\lambda\)</span> is a theoretical fragmentation-sensitivity weight, not yet a fully estimated empirical parameter.</p>
+<p><span class="math inline">\(\lambda\)</span> is a theoretical
+fragmentation-sensitivity weight, not yet a fully estimated empirical
+parameter.</p>
+</div>
+<div class="notation-legend">
+<div class="legend-title"><p>NOTATION</p></div>
+<div class="legend-grid">
+<div class="legend-row"><p><span class="math inline">\(\Pi^\star\)</span> — the optimal partition (the choice that maximizes the objective)</p></div>
+<div class="legend-row"><p><span class="math inline">\(\Pi = \{A_1, \ldots, A_p\}\)</span> — a candidate partition into <span class="math inline">\(p\)</span> segments</p></div>
+<div class="legend-row"><p><span class="math inline">\(P_i\)</span> — goal-relevant processing in segment <span class="math inline">\(i\)</span> (from Processing Cost)</p></div>
+<div class="legend-row"><p><span class="math inline">\(L(\Pi) = \sum w_{uv}\)</span> over relations split across segments — connection loss</p></div>
+<div class="legend-row"><p><span class="math inline">\(\lambda &gt; 0\)</span> — fragmentation-sensitivity weight (theoretical, not yet estimated)</p></div>
+<div class="legend-row"><p>The objective rewards accumulated <span class="math inline">\(P_i\)</span> and penalizes coherence loss <span class="math inline">\(L(\Pi)\)</span>.</p></div>
+</div>
 </div>
 <aside class="notes">
-<p>This is the model in one slide. The optimization logic is the main contribution: instructional design becomes a partitioning problem under working-memory constraints.</p>
+<p>This is the model in one slide. The optimization logic is the main
+contribution: instructional design becomes a partitioning problem under
+working-memory constraints.</p>
 </aside>
 </section>
 <section id="hypotheses" class="slide level2">
@@ -425,19 +518,23 @@ P_i = \left(C_i - E_i - I_i\right)_+
 <div class="prediction-flow">
 <div class="prediction">
 <p><strong>H1</strong></p>
-<p>When unsegmented material exceeds feasible capacity, moderate segmentation should improve learning.</p>
+<p>When unsegmented material exceeds feasible capacity, moderate
+segmentation should improve learning.</p>
 </div>
 <div class="prediction">
 <p><strong>H2</strong></p>
-<p>Excessive segmentation should hurt transfer more than recall because transfer depends on preserved relations.</p>
+<p>Excessive segmentation should hurt transfer more than recall because
+transfer depends on preserved relations.</p>
 </div>
 <div class="prediction">
 <p><strong>H3</strong></p>
-<p>Integrated representations should improve outcomes by reducing extraneous cost.</p>
+<p>Integrated representations should improve outcomes by reducing
+extraneous cost.</p>
 </div>
 </div>
 <div class="prediction-extra">
-<p><strong>H4:</strong> Learners with more prior knowledge should tolerate larger or denser chunks because residual novelty is lower.</p>
+<p><strong>H4:</strong> Learners with more prior knowledge should
+tolerate larger or denser chunks because residual novelty is lower.</p>
 </div>
 <div class="outcome-line">
 <p><span class="math display">\[
@@ -447,7 +544,9 @@ Y_{\mathrm{transfer}} = f_T\!\left(\sum_i P_i, L(\Pi)\right)
 \]</span></p>
 </div>
 <aside class="notes">
-<p>Keep this slide directional. The proposal does not need to claim final functional forms. It only needs to show that the model generates falsifiable predictions.</p>
+<p>Keep this slide directional. The proposal does not need to claim
+final functional forms. It only needs to show that the model generates
+falsifiable predictions.</p>
 </aside>
 </section>
 <section id="validation-contribution" class="slide level2">
@@ -458,52 +557,222 @@ Y_{\mathrm{transfer}} = f_T\!\left(\sum_i P_i, L(\Pi)\right)
 <ol type="1">
 <li>Choose material decomposable into elements and relations.</li>
 <li>Compare segmentation and representation conditions.</li>
-<li>Measure prior knowledge, recall, transfer, and optional subjective load.</li>
+<li>Measure prior knowledge, recall, transfer, and optional subjective
+load.</li>
 <li>Test whether model summaries align with directional outcomes.</li>
 </ol>
 </div>
 <div class="contribution">
 <p><strong>Narrow novelty claim</strong></p>
 <p>Existing models optimize memory fidelity or resource allocation.</p>
-<p>This proposal optimizes the partitioning of structured instructional information under capacity limits.</p>
+<p>This proposal optimizes the partitioning of structured instructional
+information under capacity limits.</p>
 </div>
 </div>
 <div class="closing">
-<p>The project turns a familiar verbal problem in instructional design into a precise, constrained, and testable formal account.</p>
+<p>The project turns a familiar verbal problem in instructional design
+into a precise, constrained, and testable formal account.</p>
 </div>
 <aside class="notes">
-<p>Close by making the novelty claim careful. It is not “the first formal model of working memory.” It is an integrated model for structured instructional partitioning that joins intrinsic cost, extraneous cost, goal-relevant processing, and coherence loss.</p>
+<p>Close by making the novelty claim careful. It is not “the first
+formal model of working memory.” It is an integrated model for
+structured instructional partitioning that joins intrinsic cost,
+extraneous cost, goal-relevant processing, and coherence loss.</p>
+</aside>
+</section>
+<section id="references-1" class="slide level2">
+<h2>References (1 / 2)</h2>
+<div class="references-list single-column">
+<p>Anmarkrud, Ø., Andresen, A., &amp; Bråten, I. (2019). Cognitive load and working memory in multimedia learning: Conceptual and measurement issues. <em>Educational Psychologist</em>, 54(2), 61–83.</p>
+<p>Baddeley, A. D. (1992). Working memory. <em>Science</em>, 255(5044), 556–559.</p>
+<p>Chen, O., Paas, F., &amp; Sweller, J. (2023). A cognitive load theory approach to defining and measuring task complexity through element interactivity. <em>Educational Psychology Review</em>, 35, 63.</p>
+<p>Kintsch, W. (1994). Text comprehension, memory, and learning. <em>American Psychologist</em>, 49(4), 294–303.</p>
+<p>Ma, W. J., Husain, M., &amp; Bays, P. M. (2014). Changing concepts of working memory. <em>Nature Neuroscience</em>, 17(3), 347–356.</p>
+<p>Nassar, M. R., Helmers, J. C., &amp; Frank, M. J. (2018). Chunking as a rational strategy for lossy data compression in visual working memory. <em>Psychological Review</em>, 125(4), 486–511.</p>
+</div>
+<aside class="notes">
+<p>Reference slides are for record only — do not read aloud. Skim past during the talk.</p>
+</aside>
+</section>
+<section id="references-2" class="slide level2">
+<h2>References (2 / 2)</h2>
+<div class="references-list single-column">
+<p>Sawicka, A. (2008). Dynamics of cognitive load theory: A model-based approach. <em>Computers in Human Behavior</em>, 24(3), 1041–1066.</p>
+<p>Sweller, J. (1988). Cognitive load during problem solving: Effects on learning. <em>Cognitive Science</em>, 12(2), 257–285.</p>
+<p>Sweller, J. (2010). Element interactivity and intrinsic, extraneous, and germane cognitive load. <em>Educational Psychology Review</em>, 22(2), 123–138.</p>
+<p>Sweller, J., van Merriënboer, J. J. G., &amp; Paas, F. (2019). Cognitive architecture and instructional design: 20 years later. <em>Educational Psychology Review</em>, 31(2), 261–292.</p>
+<p>van den Berg, R., &amp; Ma, W. J. (2018). A resource-rational theory of set size effects in human visual working memory. <em>eLife</em>, 7, e34963.</p>
+</div>
+<aside class="notes">
+<p>Continued reference list. Do not read aloud.</p>
 </aside>
 </section>
     </div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/js/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+
+  <!-- reveal.js plugins -->
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/search/search.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/zoom/zoom.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/math/math.js"></script>
 
   <script>
 
       // Full list of configuration options available at:
-      // https://github.com/hakimel/reveal.js#configuration
+      // https://revealjs.com/config/
       Reveal.initialize({
         // Display controls in the bottom right corner
         controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
         // Display a presentation progress bar
         progress: true,
+
         // Display the page number of the current slide
         slideNumber: true,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
         // Push each slide change to the browser history
-        history: true,
-        // Transition style
-        transition: 'fade', // none/fade/slide/convex/concave/zoom
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'fade',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
         // Transition style for full page slide backgrounds
-        backgroundTransition: 'fade', // none/fade/slide/convex/concave/zoom
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
         // The "normal" size of the presentation, aspect ratio will be preserved
         // when the presentation is scaled to fit different resolutions. Can be
         // specified using percentage units.
         width: 1600,
+
         height: 900,
+
         // Factor of the display size that should remain empty around the content
-        margin: 0.06,
+        margin: 6.0e-2,
+
         math: {
           mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js',
           config: 'TeX-AMS_HTML-full',
@@ -521,12 +790,12 @@ Y_{\mathrm{transfer}} = f_T\!\left(\sum_i P_i, L(\Pi)\right)
           },
         },
 
-        // Optional reveal.js plugins
-        dependencies: [
-          { src: 'https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-          { src: 'https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/zoom-js/zoom.js', async: true },
-          { src: 'https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/math/math.js', async: true },
-          { src: 'https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js', async: true }
+        // reveal.js plugins
+        plugins: [
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
         ]
       });
     </script>
