@@ -250,25 +250,54 @@ Use this slide as a quick live activity. Ask viewers to look at each row for a f
 
 ```{=html}
 <div class="html-only">
-  <div class="graph-stage">
-    <div class="segment segment-a">
-      <span class="seg-label">segment A<sub>1</sub></span>
-      <span class="node n1">a<sub>1</sub></span>
-      <span class="node n2">a<sub>2</sub></span>
-      <span class="node n3">a<sub>3</sub></span>
-      <span class="edge e12"></span>
-      <span class="edge e23"></span>
-    </div>
-    <div class="segment segment-b">
-      <span class="seg-label">segment A<sub>2</sub></span>
-      <span class="node n4">a<sub>4</sub></span>
-      <span class="node n5">a<sub>5</sub></span>
-      <span class="edge e45"></span>
-    </div>
-    <span class="cut-edge cut1"></span>
-    <span class="cut-edge cut2"></span>
-    <div class="graph-caption">Strong relations split across segments contribute to connection loss.</div>
-  </div>
+  <svg class="graph-stage" viewBox="0 0 1200 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two instructional segments with cross-segment relations cut by the partition.">
+    <!-- segment frames -->
+    <rect class="seg-frame" x="40"  y="60" width="520" height="380" rx="22"/>
+    <rect class="seg-frame" x="640" y="60" width="520" height="380" rx="22"/>
+    <text class="seg-label" x="64"  y="100">SEGMENT A</text>
+    <text class="seg-sub-text" x="208" y="108">1</text>
+    <text class="seg-label" x="664" y="100">SEGMENT A</text>
+    <text class="seg-sub-text" x="808" y="108">2</text>
+
+    <!-- intra-segment edges (solid teal) -->
+    <line class="edge"     x1="140" y1="220" x2="300" y2="320"/>
+    <line class="edge"     x1="300" y1="320" x2="460" y2="220"/>
+    <line class="edge"     x1="720" y1="220" x2="1060" y2="310"/>
+
+    <!-- cross-segment cut edges (dashed red, a3-a4 and a2-a5) -->
+    <line class="cut-edge" x1="460" y1="220" x2="720"  y2="220"/>
+    <line class="cut-edge" x1="300" y1="320" x2="1060" y2="310"/>
+
+    <!-- nodes (label = a + subscript number, two text elements per node) -->
+    <g class="node-group">
+      <circle class="node" cx="140"  cy="220" r="38"/>
+      <text class="node-label" x="132"  y="230">a</text>
+      <text class="node-sub"   x="156"  y="240">1</text>
+    </g>
+    <g class="node-group">
+      <circle class="node" cx="300"  cy="320" r="38"/>
+      <text class="node-label" x="292"  y="330">a</text>
+      <text class="node-sub"   x="316"  y="340">2</text>
+    </g>
+    <g class="node-group">
+      <circle class="node" cx="460"  cy="220" r="38"/>
+      <text class="node-label" x="452"  y="230">a</text>
+      <text class="node-sub"   x="476"  y="240">3</text>
+    </g>
+    <g class="node-group">
+      <circle class="node" cx="720"  cy="220" r="38"/>
+      <text class="node-label" x="712"  y="230">a</text>
+      <text class="node-sub"   x="736"  y="240">4</text>
+    </g>
+    <g class="node-group">
+      <circle class="node" cx="1060" cy="310" r="38"/>
+      <text class="node-label" x="1052" y="320">a</text>
+      <text class="node-sub"   x="1076" y="330">5</text>
+    </g>
+
+    <!-- caption -->
+    <text class="graph-caption" x="600" y="465">Strong relations split across segments contribute to connection loss.</text>
+  </svg>
 </div>
 ```
 
