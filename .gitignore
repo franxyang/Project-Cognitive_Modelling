@@ -1,0 +1,28 @@
+.DS_Store
+
+# Obsidian local UI state
+.obsidian/workspace*.json
+
+# LaTeX/Pandoc build intermediates
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.nav
+*.out
+*.run.xml
+*.snm
+*.synctex.gz
+*.toc
+*.vrb
+*.xdv
+
+# Generated QA/publishing artifacts
+slides/proposal/previews/
+slides/proposal/site-export/
+
+# Large local conversions of handwritten reference photos
+slides/proposal/references/handwritten/

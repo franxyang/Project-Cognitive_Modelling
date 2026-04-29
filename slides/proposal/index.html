@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Yifan Yang">
+  <title>Modeling Cognitive Load as an Instructional Partitioning Problem</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <style>
+    .reveal .sourceCode {  /* see #7635 */
+      overflow: visible;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css" id="theme">
+  <link rel="stylesheet" href="custom.css"/>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Modeling Cognitive Load as an Instructional
+Partitioning Problem</h1>
+  <p class="subtitle">A theory-first proposal on segmentation,
+coherence, and working-memory constraints</p>
+  <p class="author">Yifan Yang</p>
+  <p class="date">EDPS 506 | Spring 2026</p>
+</section>
+
+<section id="known" class="slide level2">
+<h2>Known</h2>
+<div class="lead">
+<p>The literature already gives us a strong chain of claims.</p>
+</div>
+<div class="logic-line">
+<div class="logic-step">
+<p><strong>1 · Capacity</strong></p>
+<p>Working memory is a limited system for temporary storage and
+manipulation.</p>
+<p><span>Baddeley, 1992</span></p>
+</div>
+<div class="logic-step">
+<p><strong>2 · Load</strong></p>
+<p>Learning depends on how intrinsic and extraneous demands consume that
+limited capacity.</p>
+<p><span>Sweller, 1988; Sweller, 2010</span></p>
+</div>
+<div class="logic-step">
+<p><strong>3 · Structure</strong></p>
+<p>Task complexity depends on element interactivity and prior knowledge,
+not just item count.</p>
+<p><span>Sweller et al., 2019; Chen et al., 2023</span></p>
+</div>
+<div class="logic-step accent">
+<p><strong>4 · Optimization</strong></p>
+<p>Capacity can be modeled as graded, allocable, and costly.</p>
+<p><span>Ma et al., 2014; van den Berg &amp; Ma, 2018</span></p>
+</div>
+</div>
+<aside class="notes">
+<p>This first problem slide should slow down the opening. The point is
+to show that the project is not coming from nowhere: CLT, working
+memory, and resource models already justify the modeling move.</p>
+</aside>
+</section>
+<section id="gap" class="slide level2">
+<h2>Gap</h2>
+<div class="lead">
+<p>The missing piece is not whether load matters. It is how
+instructional structure becomes a prediction.</p>
+</div>
+<div class="gap-grid">
+<div class="gap-item">
+<p><strong>No explicit content structure</strong></p>
+<p>Mainstream CLT discusses element interactivity, but usually does not
+represent instructional material as nodes, weights, and relations.</p>
+</div>
+<div class="gap-item">
+<p><strong>No partitioning objective</strong></p>
+<p>Segmentation is treated as a design principle, but not as an
+optimization problem with local relief and global coherence loss.</p>
+</div>
+<div class="gap-item">
+<p><strong>Weak theory-measurement bridge</strong></p>
+<p>Multimedia learning work often invokes working memory and cognitive
+load without specifying how constructs map to outcomes.</p>
+</div>
+</div>
+<div class="anchor">
+<p>Anchors: Sweller, 2010; Chen et al., 2023; Anmarkrud et al., 2019;
+Sawicka, 2008</p>
+</div>
+<aside class="notes">
+<p>This slide states the gap carefully. Do not claim that no formal
+models exist. The gap is narrower: a CLT-shaped model of structured
+instructional partitioning.</p>
+</aside>
+</section>
+<section id="proposal" class="slide level2">
+<h2>Proposal</h2>
+<div class="proposal-thesis">
+<p>Treat instructional design as a constrained partitioning problem over
+structured information.</p>
+</div>
+<div class="proposal-flow">
+<div class="flow-node">
+structured material
+</div>
+<div class="flow-arrow">
+→
+</div>
+<div class="flow-node">
+capacity-limited processing
+</div>
+<div class="flow-arrow">
+→
+</div>
+<div class="flow-node accent">
+partition choice
+</div>
+<div class="flow-arrow">
+→
+</div>
+<div class="flow-node">
+recall + transfer
+</div>
+</div>
+<div class="proposal-claim">
+<p>The model asks: <strong>how much should material be segmented before
+the cost of fragmentation exceeds the benefit of local
+relief?</strong></p>
+</div>
+<aside class="notes">
+<p>The proposal slide should make the project feel tractable. It
+converts the gap into one modeling question: choose a partition that
+preserves enough structure while reducing local burden.</p>
+</aside>
+</section>
+<section id="core-tension" class="slide level2">
+<h2>Core Tension</h2>
+<div class="split">
+<div class="big-claim">
+<p>Segmentation is useful because it lowers local processing demand.</p>
+<p>But segmentation is risky because it can break the relations needed
+for transfer.</p>
+</div>
+<div class="tradeoff">
+<div class="trade-axis">
+<div class="axis-title">
+Instructional partitioning
+</div>
+<div class="axis-line">
+
+</div>
+<div class="axis-label left">
+local relief
+</div>
+<div class="axis-label right">
+coherence loss
+</div>
+<div class="axis-dot">
+
+</div>
+</div>
+<div class="trade-equation">
+good design = tractable segments + preserved structure
+</div>
+</div>
+</div>
+<div class="anchor">
+<p>Conceptual bridge: element interactivity + coherence-based
+comprehension</p>
+</div>
+<aside class="notes">
+<p>This is the deck’s central tension. If segmentation were only good,
+the model would be trivial. The intellectual contribution is
+representing the benefit and cost in one objective.</p>
+</aside>
+</section>
+<section id="theoretical-bridge" class="slide level2">
+<h2>Theoretical Bridge</h2>
+<div class="lane-grid">
+<div class="lane">
+<p><strong>Cognitive load theory</strong></p>
+<p>Intrinsic and extraneous cost; element interactivity; prior
+knowledge.</p>
+<p><span class="math inline">\(I_i\)</span>, <span
+class="math inline">\(E_i\)</span>, <span
+class="math inline">\(r_j\)</span></p>
+</div>
+<div class="lane">
+<p><strong>Working-memory resource models</strong></p>
+<p>Capacity as graded, allocable, and costly.</p>
+<p><span class="math inline">\(C_i\)</span>, optimization</p>
+</div>
+<div class="lane">
+<p><strong>Coherence and comprehension</strong></p>
+<p>Understanding depends on preserved relational structure.</p>
+<p><span class="math inline">\(L(\Pi)\)</span>, transfer</p>
+</div>
+<div class="lane">
+<p><strong>Formal cognition models</strong></p>
+<p>Capacity limits can be modeled as constrained optimization.</p>
+<p>objective function</p>
+</div>
+</div>
+<div class="anchor">
+<p>Anchors: Baddeley, 1992; Ma et al., 2014; Kintsch, 1994; Sawicka,
+2008</p>
+</div>
+<aside class="notes">
+<p>The point of this slide is positioning. The proposal is not claiming
+to be the first formal model of limited cognition. It is claiming that
+these lines have not been integrated into a CLT-shaped model of
+instructional partitioning.</p>
+</aside>
+</section>
+<section id="memory-partition-demo" class="slide level2">
+<h2>Memory Partition Demo</h2>
+<div class="memory-demo">
+  <div class="demo-head">
+    <div>
+      <div class="eyebrow">working-memory intuition</div>
+      <h3>Same ten digits, different partitions.</h3>
+    </div>
+    <button id="new-digits" type="button">new sequence</button>
+  </div>
+  <div class="digit-row">
+    <div class="digit-card raw">
+      <div class="digit-label">no partition</div>
+      <div class="digits" id="digits-raw">7394816205</div>
+      <p>One long string must be held as a single unstable object.</p>
+    </div>
+    <div class="digit-card good">
+      <div class="digit-label">useful partition</div>
+      <div class="digits" id="digits-good">739 · 481 · 6205</div>
+      <p>Chunk boundaries reduce local burden while preserving sequence structure.</p>
+    </div>
+    <div class="digit-card over">
+      <div class="digit-label">too many partitions</div>
+      <div class="digits" id="digits-over">7 · 3 · 9 · 4 · 8 · 1 · 6 · 2 · 0 · 5</div>
+      <p>Every digit is separated; nothing helps bind the parts together.</p>
+    </div>
+  </div>
+</div>
+<script>
+(function () {
+  const raw = document.getElementById("digits-raw");
+  const good = document.getElementById("digits-good");
+  const over = document.getElementById("digits-over");
+  const button = document.getElementById("new-digits");
+  if (!raw || !good || !over || !button) return;
+  function nextDigits() {
+    const digits = Array.from({ length: 10 }, () => Math.floor(Math.random() * 10)).join("");
+    raw.textContent = digits;
+    good.textContent = digits.slice(0, 3) + " · " + digits.slice(3, 6) + " · " + digits.slice(6);
+    over.textContent = digits.split("").join(" · ");
+  }
+  button.addEventListener("click", nextDigits);
+})();
+</script>
+<div class="pdf-fallback">
+<p>Memory intuition: the same ten digits can be presented as one
+unsegmented string, as useful chunks such as
+<code>739 · 481 · 6205</code>, or as ten isolated digits. Moderate
+partitioning reduces local burden; excessive partitioning removes useful
+binding structure.</p>
+</div>
+<aside class="notes">
+<p>Use this slide as a quick live activity. Ask viewers to look at each
+row for a few seconds and notice that the raw string, useful chunks, and
+over-partitioned sequence have different memory demands despite
+containing identical information.</p>
+</aside>
+</section>
+<section id="representing-instructional-structure" class="slide level2">
+<h2>Representing Instructional Structure</h2>
+<div class="html-only">
+  <div class="graph-stage">
+    <div class="segment segment-a">
+      <span class="seg-label">segment A<sub>1</sub></span>
+      <span class="node n1">a<sub>1</sub></span>
+      <span class="node n2">a<sub>2</sub></span>
+      <span class="node n3">a<sub>3</sub></span>
+      <span class="edge e12"></span>
+      <span class="edge e23"></span>
+    </div>
+    <div class="segment segment-b">
+      <span class="seg-label">segment A<sub>2</sub></span>
+      <span class="node n4">a<sub>4</sub></span>
+      <span class="node n5">a<sub>5</sub></span>
+      <span class="edge e45"></span>
+    </div>
+    <span class="cut-edge cut1"></span>
+    <span class="cut-edge cut2"></span>
+    <div class="graph-caption">Strong relations split across segments contribute to connection loss.</div>
+  </div>
+</div>
+<div class="pdf-fallback">
+<p>Instructional material is represented as a structured set of
+information elements. A partition divides the set into instructional
+segments; strong relations split across segments create connection
+loss.</p>
+</div>
+<div class="notation-strip">
+<p><span class="math inline">\(A = \{a_1, \ldots, a_k\}\)</span><br />
+<span class="math inline">\(q_j\)</span> = element complexity<br />
+<span class="math inline">\(w_{uv}\)</span> = coordination demand<br />
+<span class="math inline">\(r_j\)</span> = residual novelty<br />
+<span class="math inline">\(\Pi = \{A_1, \ldots, A_p\}\)</span> =
+partition</p>
+</div>
+<aside class="notes">
+<p>Use the graph only as an explanatory object. Nodes are information
+elements. Edges are simultaneous coordination demands. The partition is
+the instructional segmentation decision.</p>
+</aside>
+</section>
+<section id="minimal-assumptions" class="slide level2">
+<h2>Minimal Assumptions</h2>
+<div class="assumption-grid">
+<div class="assumption">
+<p><strong>A1 · Decomposability</strong></p>
+<p>Instructional material can be represented as elements and
+relations.</p>
+</div>
+<div class="assumption">
+<p><strong>A2 · Learner-relative cost</strong></p>
+<p>Prior knowledge reduces residual novelty and therefore effective
+burden.</p>
+</div>
+<div class="assumption">
+<p><strong>A3 · Relation cost</strong></p>
+<p><span class="math inline">\(w_{uv}\)</span> means simultaneous
+coordination demand, not generic semantic similarity.</p>
+</div>
+<div class="assumption">
+<p><strong>A4 · Common scale</strong></p>
+<p><span class="math inline">\(C_i\)</span>, <span
+class="math inline">\(E_i\)</span>, and <span
+class="math inline">\(I_i\)</span> are treated as comparable latent
+processing quantities.</p>
+</div>
+<div class="assumption accent">
+<p><strong>A5 · Partition trade-off</strong></p>
+<p>Good segmentation improves local tractability without destroying too
+much global structure.</p>
+</div>
+</div>
+<aside class="notes">
+<p>These assumptions make the model defensible without overclaiming.
+They should come before formulas so the math feels like an encoding of
+assumptions rather than an arbitrary equation.</p>
+</aside>
+</section>
+<section id="processing-cost" class="slide level2">
+<h2>Processing Cost</h2>
+<div class="formula-focus">
+<p><span class="math display">\[
+I_i =
+\alpha \sum_{a_j \in A_i} r_j
++ \beta \sum_{a_j \in A_i} q_j r_j
++ \gamma \sum_{\substack{a_u,a_v \in A_i \\ u&lt;v}} w_{uv} r_u r_v
+\]</span></p>
+</div>
+<div class="cost-line">
+<div class="cost-piece">
+<p>effective quantity</p>
+</div>
+<div class="cost-piece">
+<p>element complexity</p>
+</div>
+<div class="cost-piece">
+<p>coordination demand</p>
+</div>
+</div>
+<div class="formula-secondary">
+<p><span class="math display">\[
+P_i = \left(C_i - E_i - I_i\right)_+
+\]</span></p>
+<p>Goal-relevant processing is what remains after capacity is consumed
+by extraneous and intrinsic cost.</p>
+</div>
+<aside class="notes">
+<p>Do not over-explain every parameter. Emphasize that the third term is
+the formal version of element interactivity: relations among elements
+can consume capacity, not just the number of elements.</p>
+</aside>
+</section>
+<section id="optimization-objective" class="slide level2">
+<h2>Optimization Objective</h2>
+<div class="objective">
+<p><span class="math display">\[
+\Pi^\star =
+\arg\max_{\Pi}
+\left[
+\sum_{i=1}^{p} P_i
+- \lambda L(\Pi)
+\right]
+\]</span></p>
+</div>
+<div class="html-only">
+  <div class="partition-row">
+    <div class="partition-card">
+      <div class="partition-title">No segmentation</div>
+      <div class="mini-strip one"></div>
+      <div class="partition-note">high local burden</div>
+    </div>
+    <div class="partition-card best">
+      <div class="partition-title">Moderate segmentation</div>
+      <div class="mini-strip three"></div>
+      <div class="partition-note">local relief, relations mostly preserved</div>
+    </div>
+    <div class="partition-card">
+      <div class="partition-title">Excessive segmentation</div>
+      <div class="mini-strip six"></div>
+      <div class="partition-note">fragmentation dominates</div>
+    </div>
+  </div>
+</div>
+<div class="pdf-fallback">
+<p>The objective rewards accumulated goal-relevant processing and
+penalizes connection loss. Moderate segmentation can be optimal when it
+lowers local cost without cutting too many strong relations.</p>
+</div>
+<div class="objective-footnote">
+<p><span class="math inline">\(\lambda\)</span> is a theoretical
+fragmentation-sensitivity weight, not yet a fully estimated empirical
+parameter.</p>
+</div>
+<aside class="notes">
+<p>This is the model in one slide. The optimization logic is the main
+contribution: instructional design becomes a partitioning problem under
+working-memory constraints.</p>
+</aside>
+</section>
+<section id="hypotheses" class="slide level2">
+<h2>Hypotheses</h2>
+<div class="prediction-flow">
+<div class="prediction">
+<p><strong>H1</strong></p>
+<p>When unsegmented material exceeds feasible capacity, moderate
+segmentation should improve learning.</p>
+</div>
+<div class="prediction">
+<p><strong>H2</strong></p>
+<p>Excessive segmentation should hurt transfer more than recall because
+transfer depends on preserved relations.</p>
+</div>
+<div class="prediction">
+<p><strong>H3</strong></p>
+<p>Integrated representations should improve outcomes by reducing
+extraneous cost.</p>
+</div>
+</div>
+<div class="prediction-extra">
+<p><strong>H4:</strong> Learners with more prior knowledge should
+tolerate larger or denser chunks because residual novelty is lower.</p>
+</div>
+<div class="outcome-line">
+<p><span class="math display">\[
+Y_{\mathrm{recall}} = f_R\!\left(\sum_i P_i\right)
+\qquad
+Y_{\mathrm{transfer}} = f_T\!\left(\sum_i P_i, L(\Pi)\right)
+\]</span></p>
+</div>
+<aside class="notes">
+<p>Keep this slide directional. The proposal does not need to claim
+final functional forms. It only needs to show that the model generates
+falsifiable predictions.</p>
+</aside>
+</section>
+<section id="validation-contribution" class="slide level2">
+<h2>Validation + Contribution</h2>
+<div class="validation-grid">
+<div class="validation">
+<p><strong>Validation path</strong></p>
+<ol type="1">
+<li>Choose material decomposable into elements and relations.</li>
+<li>Compare segmentation and representation conditions.</li>
+<li>Measure prior knowledge, recall, transfer, and optional subjective
+load.</li>
+<li>Test whether model summaries align with directional outcomes.</li>
+</ol>
+</div>
+<div class="contribution">
+<p><strong>Narrow novelty claim</strong></p>
+<p>Existing models optimize memory fidelity or resource allocation.</p>
+<p>This proposal optimizes the partitioning of structured instructional
+information under capacity limits.</p>
+</div>
+</div>
+<div class="closing">
+<p>The project turns a familiar verbal problem in instructional design
+into a precise, constrained, and testable formal account.</p>
+</div>
+<aside class="notes">
+<p>Close by making the novelty claim careful. It is not “the first
+formal model of working memory.” It is an integrated model for
+structured instructional partitioning that joins intrinsic cost,
+extraneous cost, goal-relevant processing, and coherence loss.</p>
+</aside>
+</section>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+
+  <!-- reveal.js plugins -->
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/search/search.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/zoom/zoom.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/math/math.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: true,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'fade',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1600,
+
+        height: 900,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 6.0e-2,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>
