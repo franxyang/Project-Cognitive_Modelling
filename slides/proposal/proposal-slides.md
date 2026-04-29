@@ -149,46 +149,98 @@ This is the deck's central tension. If segmentation were only good, the model wo
 
 ## Theoretical Bridge
 
+::: {.lead}
+I am not the first to formalize cognition under limits. I borrow one move from each of these four traditions; the contribution is integrating them.
+:::
+
 ::: {.lane-grid}
 ::: {.lane}
-**Cognitive load theory**
+::: {.lane-eyebrow}
+COGNITIVE LOAD THEORY
+:::
 
-Intrinsic and extraneous cost; element interactivity; prior knowledge.
+::: {.lane-move}
+Split cost by source.
+:::
 
-$I_i$, $E_i$, $r_j$
+The cost of learning a thing is decomposed by where it comes from: the material itself, how it is presented, and what is left over for learning.
+
+::: {.lane-chip}
+becomes $I_i$, $E_i$, $P_i$
+:::
+
+::: {.lane-cite}
+Sweller, 1988; 2010
+:::
 :::
 
 ::: {.lane}
-**Working-memory resource models**
+::: {.lane-eyebrow}
+WORKING-MEMORY RESOURCE MODELS
+:::
 
-Capacity as graded, allocable, and costly.
+::: {.lane-move}
+Treat capacity as a graded budget.
+:::
 
-$C_i$, optimization
+Capacity is not a fixed slot count; it is a resource that can be unevenly allocated across elements and that runs out.
+
+::: {.lane-chip}
+becomes $C_i$
+:::
+
+::: {.lane-cite}
+Ma et al., 2014; van den Berg & Ma, 2018
+:::
 :::
 
 ::: {.lane}
-**Coherence and comprehension**
+::: {.lane-eyebrow}
+COHERENCE AND COMPREHENSION
+:::
 
-Understanding depends on preserved relational structure.
+::: {.lane-move}
+Preserve the relations transfer needs.
+:::
 
-$L(\Pi)$, transfer
+Understanding depends on cross-element relations being intact; segmentation can break them, and that should hurt transfer more than recall.
+
+::: {.lane-chip}
+becomes $L(\Pi)$
+:::
+
+::: {.lane-cite}
+Kintsch, 1994; Anmarkrud et al., 2019
+:::
 :::
 
 ::: {.lane}
-**Formal cognition models**
-
-Capacity limits can be modeled as constrained optimization.
-
-objective function
-:::
+::: {.lane-eyebrow}
+FORMAL COGNITION MODELS
 :::
 
-::: {.anchor}
-Anchors: Baddeley, 1992; Ma et al., 2014; Kintsch, 1994; Sawicka, 2008
+::: {.lane-move}
+Frame limits as constrained optimization.
+:::
+
+Adjacent traditions write capacity-limited cognition as an objective to maximize, not just a verbal trade-off.
+
+::: {.lane-chip}
+becomes $\arg\max_\Pi[\,\cdot\,]$
+:::
+
+::: {.lane-cite}
+Sawicka, 2008; Nassar et al., 2018
+:::
+:::
+:::
+
+::: {.bridge-footer}
+Each chip names a variable that is formally defined two to three slides later.
 :::
 
 ::: {.notes}
-The point of this slide is positioning. The proposal is not claiming to be the first formal model of limited cognition. It is claiming that these lines have not been integrated into a CLT-shaped model of instructional partitioning.
+This slide is doing positioning, not literature review. Each lane should answer one question: what specific move did I take from this tradition, and where does it show up in my model. Speak the chip out loud — "this becomes I_i / E_i / P_i" — so the audience can hold on to the mapping when those symbols return.
 :::
 
 ## Memory Partition Demo
@@ -250,25 +302,54 @@ Use this slide as a quick live activity. Ask viewers to look at each row for a f
 
 ```{=html}
 <div class="html-only">
-  <div class="graph-stage">
-    <div class="segment segment-a">
-      <span class="seg-label">segment A<sub>1</sub></span>
-      <span class="node n1">a<sub>1</sub></span>
-      <span class="node n2">a<sub>2</sub></span>
-      <span class="node n3">a<sub>3</sub></span>
-      <span class="edge e12"></span>
-      <span class="edge e23"></span>
-    </div>
-    <div class="segment segment-b">
-      <span class="seg-label">segment A<sub>2</sub></span>
-      <span class="node n4">a<sub>4</sub></span>
-      <span class="node n5">a<sub>5</sub></span>
-      <span class="edge e45"></span>
-    </div>
-    <span class="cut-edge cut1"></span>
-    <span class="cut-edge cut2"></span>
-    <div class="graph-caption">Strong relations split across segments contribute to connection loss.</div>
-  </div>
+  <svg class="graph-stage" viewBox="0 0 1200 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two instructional segments with cross-segment relations cut by the partition.">
+    <!-- segment frames -->
+    <rect class="seg-frame" x="40"  y="60" width="520" height="380" rx="22"/>
+    <rect class="seg-frame" x="640" y="60" width="520" height="380" rx="22"/>
+    <text class="seg-label" x="64"  y="100">SEGMENT A</text>
+    <text class="seg-sub-text" x="208" y="108">1</text>
+    <text class="seg-label" x="664" y="100">SEGMENT A</text>
+    <text class="seg-sub-text" x="808" y="108">2</text>
+
+    <!-- intra-segment edges (solid teal) -->
+    <line class="edge"     x1="140" y1="220" x2="300" y2="320"/>
+    <line class="edge"     x1="300" y1="320" x2="460" y2="220"/>
+    <line class="edge"     x1="720" y1="220" x2="1060" y2="310"/>
+
+    <!-- cross-segment cut edges (dashed red, a3-a4 and a2-a5) -->
+    <line class="cut-edge" x1="460" y1="220" x2="720"  y2="220"/>
+    <line class="cut-edge" x1="300" y1="320" x2="1060" y2="310"/>
+
+    <!-- nodes (label = a + subscript number, two text elements per node) -->
+    <g class="node-group">
+      <circle class="node" cx="140"  cy="220" r="38"/>
+      <text class="node-label" x="132"  y="230">a</text>
+      <text class="node-sub"   x="156"  y="240">1</text>
+    </g>
+    <g class="node-group">
+      <circle class="node" cx="300"  cy="320" r="38"/>
+      <text class="node-label" x="292"  y="330">a</text>
+      <text class="node-sub"   x="316"  y="340">2</text>
+    </g>
+    <g class="node-group">
+      <circle class="node" cx="460"  cy="220" r="38"/>
+      <text class="node-label" x="452"  y="230">a</text>
+      <text class="node-sub"   x="476"  y="240">3</text>
+    </g>
+    <g class="node-group">
+      <circle class="node" cx="720"  cy="220" r="38"/>
+      <text class="node-label" x="712"  y="230">a</text>
+      <text class="node-sub"   x="736"  y="240">4</text>
+    </g>
+    <g class="node-group">
+      <circle class="node" cx="1060" cy="310" r="38"/>
+      <text class="node-label" x="1052" y="320">a</text>
+      <text class="node-sub"   x="1076" y="330">5</text>
+    </g>
+
+    <!-- caption -->
+    <text class="graph-caption" x="600" y="465">Strong relations split across segments contribute to connection loss.</text>
+  </svg>
 </div>
 ```
 
@@ -359,8 +440,48 @@ $$
 Goal-relevant processing is what remains after capacity is consumed by extraneous and intrinsic cost.
 :::
 
+::: {.notation-legend}
+::: {.legend-title}
+NOTATION
+:::
+
+::: {.legend-grid}
+::: {.legend-row}
+$I_i$ — intrinsic processing cost in segment $i$
+:::
+
+::: {.legend-row}
+$C_i$ — effective processing capacity in segment $i$
+:::
+
+::: {.legend-row}
+$P_i$ — goal-relevant processing left for learning
+:::
+
+::: {.legend-row}
+$E_i$ — extraneous processing cost (presentation, interface)
+:::
+
+::: {.legend-row}
+$r_j \in [0,1]$ — residual novelty of element $a_j$ after prior knowledge
+:::
+
+::: {.legend-row}
+$q_j$ — element-level complexity
+:::
+
+::: {.legend-row}
+$w_{uv}$ — simultaneous coordination demand between $a_u$ and $a_v$
+:::
+
+::: {.legend-row}
+$\alpha,\beta,\gamma$ — weights on the three cost terms; $(x)_+ = \max(x,0)$
+:::
+:::
+:::
+
 ::: {.notes}
-Do not over-explain every parameter. Emphasize that the third term is the formal version of element interactivity: relations among elements can consume capacity, not just the number of elements.
+Do not over-explain every parameter. Emphasize that the third term is the formal version of element interactivity: relations among elements can consume capacity, not just the number of elements. The notation strip below is for reference only — do not read it line by line.
 :::
 
 ## Optimization Objective
@@ -404,6 +525,38 @@ The objective rewards accumulated goal-relevant processing and penalizes connect
 
 ::: {.objective-footnote}
 $\lambda$ is a theoretical fragmentation-sensitivity weight, not yet a fully estimated empirical parameter.
+:::
+
+::: {.notation-legend}
+::: {.legend-title}
+NOTATION
+:::
+
+::: {.legend-grid}
+::: {.legend-row}
+$\Pi^\star$ — the optimal partition (the choice that maximizes the objective)
+:::
+
+::: {.legend-row}
+$\Pi = \{A_1, \ldots, A_p\}$ — a candidate partition into $p$ segments
+:::
+
+::: {.legend-row}
+$P_i$ — goal-relevant processing in segment $i$ (from Processing Cost)
+:::
+
+::: {.legend-row}
+$L(\Pi) = \sum w_{uv}$ over relations split across segments — connection loss
+:::
+
+::: {.legend-row}
+$\lambda > 0$ — fragmentation-sensitivity weight (theoretical, not yet estimated)
+:::
+
+::: {.legend-row}
+The objective rewards accumulated $P_i$ and penalizes coherence loss $L(\Pi)$.
+:::
+:::
 :::
 
 ::: {.notes}
@@ -475,4 +628,42 @@ The project turns a familiar verbal problem in instructional design into a preci
 
 ::: {.notes}
 Close by making the novelty claim careful. It is not "the first formal model of working memory." It is an integrated model for structured instructional partitioning that joins intrinsic cost, extraneous cost, goal-relevant processing, and coherence loss.
+:::
+
+## References (1 / 2)
+
+::: {.references-list}
+Anmarkrud, Ø., Andresen, A., & Bråten, I. (2019). Cognitive load and working memory in multimedia learning: Conceptual and measurement issues. *Educational Psychologist*, 54(2), 61–83.
+
+Baddeley, A. D. (1992). Working memory. *Science*, 255(5044), 556–559.
+
+Chen, O., Paas, F., & Sweller, J. (2023). A cognitive load theory approach to defining and measuring task complexity through element interactivity. *Educational Psychology Review*, 35, 63.
+
+Kintsch, W. (1994). Text comprehension, memory, and learning. *American Psychologist*, 49(4), 294–303.
+
+Ma, W. J., Husain, M., & Bays, P. M. (2014). Changing concepts of working memory. *Nature Neuroscience*, 17(3), 347–356.
+
+Nassar, M. R., Helmers, J. C., & Frank, M. J. (2018). Chunking as a rational strategy for lossy data compression in visual working memory. *Psychological Review*, 125(4), 486–511.
+:::
+
+::: {.notes}
+Reference slides are for record only — do not read aloud. Skim past during the talk.
+:::
+
+## References (2 / 2)
+
+::: {.references-list}
+Sawicka, A. (2008). Dynamics of cognitive load theory: A model-based approach. *Computers in Human Behavior*, 24(3), 1041–1066.
+
+Sweller, J. (1988). Cognitive load during problem solving: Effects on learning. *Cognitive Science*, 12(2), 257–285.
+
+Sweller, J. (2010). Element interactivity and intrinsic, extraneous, and germane cognitive load. *Educational Psychology Review*, 22(2), 123–138.
+
+Sweller, J., van Merriënboer, J. J. G., & Paas, F. (2019). Cognitive architecture and instructional design: 20 years later. *Educational Psychology Review*, 31(2), 261–292.
+
+van den Berg, R., & Ma, W. J. (2018). A resource-rational theory of set size effects in human visual working memory. *eLife*, 7, e34963.
+:::
+
+::: {.notes}
+Continued reference list. Do not read aloud.
 :::
