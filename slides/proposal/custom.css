@@ -794,6 +794,43 @@ svg.graph-stage .graph-caption {
   display: none;
 }
 
+/* Top-bar toggle: "View as article" link sitting above the reveal.js viewport */
+.cl-topbar {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  position: fixed;
+  right: 18px;
+  top: 18px;
+  z-index: 9999;
+}
+
+.cl-topbar .cl-modebtn {
+  background: rgba(248, 244, 236, 0.9);
+  backdrop-filter: saturate(180%) blur(10px);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--ink);
+  font-family: "JetBrains Mono", "SF Mono", Menlo, monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  padding: 8px 14px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+
+.cl-topbar .cl-modebtn:hover {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+/* Hide the topbar during fullscreen / overview / paused — pressing F or O hides distractions */
+.reveal.overview ~ .cl-topbar,
+:fullscreen .cl-topbar,
+:-webkit-full-screen .cl-topbar { display: none; }
+
 .references-list {
   column-count: 2;
   column-gap: 56px;
